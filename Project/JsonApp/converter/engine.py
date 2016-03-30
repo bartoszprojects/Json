@@ -1,5 +1,6 @@
 from words_set import x, xx, xxx, bignumbers
 
+
 class NumbToWords(object):
     def __init__(self, my_numb):
         self.my_numb = my_numb
@@ -20,12 +21,11 @@ class NumbToWords(object):
         return word
 
     def generate_000(self):
-        self.my = self.my_numb
         self.my_list = []
         while True:
-            self.my_list.append(self.my[-3:])
-            self.my = self.my[:-3]
-            if self.my == '':
+            self.my_list.append(self.my_numb[-3:])
+            self.my_numb = self.my_numb[:-3]
+            if self.my_numb == '':
                 break
         return self.my_list
 
