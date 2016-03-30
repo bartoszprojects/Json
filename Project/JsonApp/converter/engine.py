@@ -6,6 +6,12 @@ class NumbToWords(object):
         self.my_numb = my_numb
 
     def NumbToWords(self, number):
+        '''
+        This method converts unique 0-999 numbers to string label
+        :param number: get each [000] number to convert
+        :return: return each converted 0-999 number to label
+        '''
+        
         word = ''
         str_number = str(number)
         if number >= 0 and number < 20:
@@ -21,6 +27,11 @@ class NumbToWords(object):
         return word
 
     def generate_000(self):
+        '''
+        It splits given number to a three digits blocks: 1543543 = [154,354,003]
+        :return: list of thousandths from given number
+        '''
+
         self.my_list = []
         while True:
             self.my_list.append(self.my_numb[-3:])
@@ -30,10 +41,16 @@ class NumbToWords(object):
         return self.my_list
 
     def finally_string(self):
+        '''
+        In this method Id of elements [123,123,123] is assigns to Id of ['tysiac','milion','miliard','trylion'].
+        :return: returns string of numbers labels
+        '''
+
         finally_string = []
         z = 0
         for elem in self.my_list:
             z += 1
+            # Skip zeros in given number (avoid: "one milion zero zero zero zero zero fifty")
             if elem != '000':
                 temp = self.NumbToWords(int(elem))
                 finally_string.append(str(temp) + ' ' + bignumbers[z - 1])
