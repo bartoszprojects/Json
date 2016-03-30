@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+from converter.engine import NumbToWords
 
-# Create your views here.
+def json(request):
+    return HttpResponse(NumbToWords(123))
